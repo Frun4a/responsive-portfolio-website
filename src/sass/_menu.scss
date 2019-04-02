@@ -1,37 +1,134 @@
 //Menu Button
 .menu-btn {
-    position: absolute;
-    z-index: 3;
-    right: 35px;
-    top: 35px;
-    cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  @include easeOut;
+
+  .btn-line {
+    width: 28px;
+    height: 3px;
+    margin: 0px 0px 5px 0px;
+    background: #fff;
     @include easeOut;
+  }
+
+  //Rotate into X with Menu Lines
+  &.close {
+    transform: rotate(180deg);
 
     .btn-line {
-        width: 28px;
-        height: 3px;
-        margin: 0px 0px 5px 0px;
-        background: #fff;
-        @include easeOut;
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+  }
+}
+
+//Menu overlay
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+
+  &.show {
+    visibility: visible;
+  }
+
+  &-branding,
+  &-nav {
+    flex: 0 1 50%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &-nav {
+    margin: 0;
+    padding: 0;
+    background: rgba(darken($primary-color, 5), 0.9);
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    @include easeOut;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &-branding {
+    background: rgba($primary-color, 0.9);
+    transform: translate3d(0, 100%, 0);
+    @include easeOut;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
     }
 
-    //Rotate into X with Menu Lines
-    &.close {
-       // transform: rotate(180deg);
+    .portrait {
+      width: 250px;
+      height: 250px;
+      background: url("../img/portrait.jpg");
+      border-radius: 50%;
+      border: solid 3px $secondary-color;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position-x: 40%;
+    }
+  }
 
-        .btn-line {
-            &:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-  
-            &:nth-child(2) {
-                opacity: 0;
-            }
+  .nav-item {
+      transform: translate3d(600px, 0, 0);
+      @include easeOut;
 
-  
-            &:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-        }
+      &.show {
+          transform: translate3d(0, 0, 0);
+      }
+      
+      a.current {
+          color: $secondary-color;
+      }
+
+      .nav-link {
+          display: inline-block;
+          position: relative;
+          font-size: 2rem;
+          text-transform: uppercase;
+          padding: 1rem 0;
+          font-weight: 300;
+          color: #fff;
+          text-decoration: none;
+          @include easeOut;
+
+          &:hover {
+             color: $secondary-color;
+          }
+      }
+  }
+}
+
+//Delay each nav item
+
+@for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}) {
+        transition-delay: $x * 0.15s;
     }
 }

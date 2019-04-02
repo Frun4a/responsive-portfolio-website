@@ -2,8 +2,8 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 
 const ListLink = props => (
-  <li className={"nav-item " + props.menuClass}>
-    <Link to={props.to} className="nav-link">
+  <li className={"nav-item " + props.menuClass} activeClassName="current">
+    <Link to={props.to} className="nav-link" activeClassName="current">
       {props.children}
     </Link>
   </li>
@@ -14,31 +14,31 @@ class Header extends Component {
     super()
     this.state = {
       showMenu: false,
-      btnClass: 'close',
-      menuClass: 'show'
+      btnClass: '',
+      menuClass: ''
     }
   }
 
   toggleMenu = () => {
-    console.log('Toggled')
+    //console.log('Toggled')
     this.setState((prevState) => {
-      console.log(`${prevState} becomes `)
-      if (!prevState.showMenu) {
+      //console.log(`${prevState} becomes `)
+      if (prevState.showMenu) {
         return {
-          showMenu: true,
+          showMenu: false,
           btnClass: '',
           menuClass: ''
           }
         }
         else {
           return {
-          showMenu: false,
+          showMenu: true,
           btnClass: 'close',
           menuClass: 'show'
           }
         }
     })
-    console.log(this.state)
+    //console.log(this.state)
   }
 
   render() { 
