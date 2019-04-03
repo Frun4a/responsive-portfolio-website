@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 
 const ListLink = props => (
-  <li className={"nav-item " + props.menuClass} activeClassName="current">
+  <li className={"nav-item " + props.menuClass}>
     <Link to={props.to} className="nav-link" activeClassName="current">
       {props.children}
     </Link>
