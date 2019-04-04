@@ -19,6 +19,16 @@
       margin-bottom: 1rem;
       font-size: 3rem;
     }
+
+    &#about {
+      .about-info {
+        flex-flow: column;
+      }
+
+     .jobs-container {
+       flex-flow: column;
+      }
+    }
   }
 
 

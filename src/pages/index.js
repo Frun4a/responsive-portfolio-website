@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/Layout.js"
 
 export default () => (
-  <Layout>
+  <Layout bodyId="bg-img">
     <main id="home">
       <h1 className="lg-heading">
         Julia <span className="text-secondary">Kolesnikova</span>

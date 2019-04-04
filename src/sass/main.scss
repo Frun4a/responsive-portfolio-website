@@ -1,6 +1,5 @@
-@import 'config';
-@import 'menu';
-
+@import "config";
+@import "menu";
 
 * {
   box-sizing: border-box;
@@ -8,10 +7,10 @@
 
 body {
   @include background;
+  background: $primary-color;
   height: 100%;
   margin: 0;
-  background: $primary-color;
-  color: #fff;
+  color: set-text-color($primary-color);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
 }
@@ -30,7 +29,7 @@ h3 {
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
-    background: rgba(lighten($primary-color, 2), 0.5);
+    background: rgba(lighten($primary-color, 10), 0.5);
   }
 }
 
@@ -41,7 +40,6 @@ a {
 
 header {
   position: fixed;
-  //top: 0px;
   z-index: 2;
   width: 100%;
 }
@@ -52,7 +50,7 @@ header {
 
 main {
   padding: 4rem;
-  height: 100%;
+  min-height: calc(100vh - 60px);
 
   .icons {
     margin-top: 1rem;
@@ -69,11 +67,71 @@ main {
 
   &#home {
     overflow: hidden;
-      h1 {
-        margin-top: 20vh;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+
+  &#about {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    .about-info {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      .bio-image-container {
+        padding: 0.5rem 2rem;;
+        margin: auto;
+
+        .bio-image {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          border: $secondary-color 3px solid;
+        }
       }
+
+      .bio {
+        flex: 3 1;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        h3 {
+          font-size: 1.5rem;
+        }
+        p {
+          margin-top: 0.25rem;
+        }
+      }
+    }
+    .jobs-container {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+
+      .job {
+        flex: 0 1 48%;
+        background: lighten($primary-color, 5);
+        padding: 0.5rem;
+        border-bottom: $secondary-color 5px solid;
+        margin-bottom: 0.5rem;
+
+        h4, p {
+          margin: 0.5rem 0;
+        }
+      }
+    }
     
   }
 }
 
-@import 'mobile';
+footer#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+  height: 60px;
+}
+
+@import "mobile";

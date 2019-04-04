@@ -1,14 +1,24 @@
-import React from "react"
+import React, {Component} from "react"
 import Header from "../components/Header.js"
+import Footer from "../components/Footer.js"
 import { Helmet } from "react-helmet"
 import "../sass/main.scss"
 import "../js/main.js"
 
-export default ({ children }) => (
-  <div id="layout">
+class Layout extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+  }
+
+  render() {
+    const bodyId = this.props.bodyId
+    return(
+    <div id="layout">
     <Helmet>
       <title>My Title</title>
-      <body id="bg-img" />
+      <body id={bodyId} />
       <link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -17,6 +27,11 @@ export default ({ children }) => (
       />
     </Helmet>
     <Header />
-    {children}
+    {this.props.children}
+    <Footer />
   </div>
-)
+    )
+  }
+}
+
+export default Layout
