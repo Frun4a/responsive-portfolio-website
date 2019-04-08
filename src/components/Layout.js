@@ -17,7 +17,7 @@ class Layout extends Component {
     return(
     <div id="layout">
     <Helmet>
-      <title>My Title</title>
+      <title>Julia Kolesnikova - Portfolio</title>
       <body id={bodyId} />
       <link
         rel="stylesheet"
@@ -27,8 +27,10 @@ class Layout extends Component {
       />
     </Helmet>
     <Header />
+
     {this.props.children}
-    <Footer />
+
+    {(this.props.page != "home") ? <Footer /> : null}
   </div>
     )
   }
