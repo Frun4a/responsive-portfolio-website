@@ -20,9 +20,7 @@ class Header extends Component {
   }
 
   toggleMenu = () => {
-    //console.log('Toggled')
     this.setState((prevState) => {
-      //console.log(`${prevState} becomes `)
       if (prevState.showMenu) {
         return {
           showMenu: false,

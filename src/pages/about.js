@@ -1,9 +1,13 @@
 import React from "react"
 import Layout from "../components/Layout.js"
+import { Helmet } from "react-helmet"
 
 import portrait from "../img/portrait.jpg"
 export default () => (
   <Layout>
+    <Helmet>
+      <title>Julia Kolesnikova - About Me</title>
+    </Helmet>
     <main id="about">
       <h1 className="lg-heading">
         About

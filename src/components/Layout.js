@@ -13,7 +13,7 @@ class Layout extends Component {
   }
 
   render() {
-    const bodyId = this.props.bodyId
+    const bodyId = this.props.bodyId 
     return(
     <div id="layout">
     <Helmet>
@@ -30,7 +30,7 @@ class Layout extends Component {
 
     {this.props.children}
 
-    {(this.props.page != "home") ? <Footer /> : null}
+    {this.props.page !== "home" ? <Footer /> : null}
   </div>
     )
   }
