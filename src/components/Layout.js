@@ -13,7 +13,8 @@ class Layout extends Component {
   }
 
   render() {
-    const bodyId = this.props.bodyId 
+    const bodyId = this.props.bodyId
+    
     return(
     <div id="layout">
     <Helmet>

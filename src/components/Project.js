@@ -1,11 +1,6 @@
 import React from "react"
 import styles from "./Project.module.scss" 
 
-const imgStyles = {
-    maxWidth: "400px",
-    border: "3px white solid"
-}
-
 const Project = props => (
   <div className={styles.project}>
     <a href="#!">
@@ -25,4 +20,4 @@ const Project = props => (
   </div>
 )
 
-export default Project
+export default Project 

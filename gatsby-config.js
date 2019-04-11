@@ -13,4 +13,6 @@ module.exports = {
       },
     },
   ],
+
+  pathPrefix: "/responsive-portfolio-website"
 }

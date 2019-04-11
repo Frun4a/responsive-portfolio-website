@@ -2,9 +2,9 @@ import React from "react"
 import Layout from "../components/Layout.js"
 import { Helmet } from "react-helmet"
 import PortfolioGallery from "../components/PortfolioGallery.js"
-import Project from "../components/Project.js"
 
-import imgProject from "../img/project.jpeg"
+// import Project from "../components/Project.js"
+// import imgProject from "../img/project.jpeg"
 
 export default () => (
   <Layout>
@@ -21,7 +21,7 @@ export default () => (
         See my artworks done while working for Tablio
       </h2>
 
-      <div className="projects">
+      {/* <div className="projects"> 
         <Project
           imgSrc={imgProject}
           projectText="Some Text"
@@ -40,8 +40,7 @@ export default () => (
           projectLink="#toProject"
           gitHubLink="#toGithub"
         />
-
-      </div>
+      </div> */}
       <PortfolioGallery />
     </main>
   </Layout>

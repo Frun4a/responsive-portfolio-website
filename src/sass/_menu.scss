@@ -1,5 +1,9 @@
 //Menu Button
 .menu-btn {
+  background: darken($primary-color, 5);
+  padding: 10px;
+  border-radius: 50%;
+
   position: absolute;
   z-index: 3;
   right: 35px;
@@ -10,7 +14,7 @@
   .btn-line {
     width: 28px;
     height: 3px;
-    margin: 0px 0px 5px 0px;
+    margin: 5px 0px 5px 0px;
     background: set-text-color($primary-color);
     @include easeOut;
   }
@@ -40,6 +44,7 @@
 .menu {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   visibility: hidden;
   display: flex;
@@ -96,39 +101,39 @@
   }
 
   .nav-item {
-      transform: translate3d(600px, 0, 0);
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+
+    a.current {
+      color: $secondary-color;
+    }
+
+    .nav-link {
+      display: inline-block;
+      position: relative;
+      font-size: 2rem;
+      text-transform: uppercase;
+      padding: 1rem 0;
+      font-weight: 300;
+      color: set-text-color($primary-color);
+      text-decoration: none;
       @include easeOut;
 
-      &.show {
-          transform: translate3d(0, 0, 0);
+      &:hover {
+        color: $secondary-color;
       }
-      
-      a.current {
-          color: $secondary-color;
-      }
-
-      .nav-link {
-          display: inline-block;
-          position: relative;
-          font-size: 2rem;
-          text-transform: uppercase;
-          padding: 1rem 0;
-          font-weight: 300;
-          color: set-text-color($primary-color);
-          text-decoration: none;
-          @include easeOut;
-
-          &:hover {
-             color: $secondary-color;
-          }
-      }
+    }
   }
 }
 
 //Delay each nav item
 
 @for $x from 1 through 4 {
-    .nav-item:nth-child(#{$x}) {
-        transition-delay: $x * 0.15s;
-    }
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.15s;
+  }
 }
